@@ -1,9 +1,9 @@
 <template>
     <div class="card-album">
-         <img class="card-img-top" :src="cardInfo.poster" alt="Card image cap">
-         <h4 class="" >{{ cardInfo.title }}</h4>
-         <div>
-            <span class="d-block">
+         <img class="w-100" :src="cardInfo.poster" alt="Card image cap">
+         <h4 class="album-title" >{{ cardInfo.title }}</h4>
+         <div class="text-muted">
+            <span class="d-block fs-5">
                 {{cardInfo.author}}
             </span>
             <span>{{cardInfo.year}}</span>
@@ -22,8 +22,15 @@ export default {
     .card-album{
         text-align: center;
         padding: 20px;
-        margin: 10px 25px 0 25px;
-        width: calc((100% / 5) - 50px);
+        margin: 12px 20px;
+        width: calc((100% / 5) - 40px);
         background-color: $secondaryColor;
+        .album-title{
+            color: white;
+            padding: 20px 0;
+            text-transform: uppercase;
+        }
+        
+
     }
 </style>
