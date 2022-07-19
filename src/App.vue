@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss">
-/* @import "~bootstrap-icons/font/bootstrap-icons.scss"; */
+@import "~bootstrap-icons/font/bootstrap-icons.css"; 
 @import "~bootstrap/scss/bootstrap.scss";
 @import "./styles/variables.scss";
 body{

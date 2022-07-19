@@ -1,7 +1,7 @@
 <template>
   <div class="container py-5">
-    <Loading/>
-    <div class="row">
+    <Loading v-if="loadingScreen == true"/>
+    <div class="row" v-eslse>
          <AlbumCard v-for="(cardInfo,index) in cardsInfo" 
         :key="index"
         :cardInfo="cardInfo"
@@ -18,6 +18,7 @@ export default {
     data:function(){
         return{
             cardsInfo:[],
+            loadingScreen:true,
         }
     },
     components:{
@@ -28,8 +29,12 @@ export default {
         getCardInfo() {
               axios.get('https://flynn.boolean.careers/exercises/api/array/music')
                 .then( (result) => {   
-                    this.cardsInfo = result.data.response;            
-                    })
+                    this.cardsInfo = result.data.response;    
+                     this.loadingScreen = false;        
+                    })                   
+                .catch((error) => {
+                    console.warn(error)
+                })
         },
     },
     created(){

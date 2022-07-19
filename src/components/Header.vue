@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="header-container">
-
+        <i class="bi bi-spotify spotify-icon"></i>
     </div>
   </header>
 </template>
@@ -14,8 +14,13 @@ export default {
 
 <style lang="scss">
 @import "../styles/variables.scss";
+
 .header-container{
-    height: 50px;
     background-color: $secondaryColor;
+    .spotify-icon{
+        font-size:40px;
+        margin-left: 30px;
+        color: #1DB954;
+    }
 }
 </style>
