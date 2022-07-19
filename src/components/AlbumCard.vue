@@ -3,7 +3,7 @@
          <img class="w-100" :src="cardInfo.poster" alt="Card image cap">
          <h4 class="album-title" >{{ cardInfo.title }}</h4>
          <div class="text-muted">
-            <span class="d-block fs-5">
+            <span class="d-block fs-4">
                 {{cardInfo.author}}
             </span>
             <span>{{cardInfo.year}}</span>

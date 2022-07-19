@@ -19,7 +19,10 @@ export default {
 </script>
 
 <style lang="scss">
+/* @import "~bootstrap-icons/font/bootstrap-icons.scss"; */
 @import "~bootstrap/scss/bootstrap.scss";
 @import "./styles/variables.scss";
-
+body{
+  background-color: $mainColor;
+}
 </style>

@@ -15,7 +15,5 @@ export default {
 
 <style lang="scss">
 @import "../styles/variables.scss";
-main{
-    background-color: $mainColor;
-}
+
 </style>
