@@ -1,6 +1,11 @@
 <template>
-  <div class="container">
-    <AlbumCard v-for="(singleCard,index) in cardsInfo" :key="index"/>
+  <div class="container py-5">
+    <div class="row">
+         <AlbumCard v-for="(cardInfo,index) in cardsInfo" 
+        :key="index"
+        :cardInfo="cardInfo"
+        />
+    </div>   
   </div>
 </template>
 
@@ -21,7 +26,7 @@ export default {
               axios.get('https://flynn.boolean.careers/exercises/api/array/music')
                 .then( (result) => {   
                     this.cardsInfo = result.data.response;             
-                    console.log(this.cardsInfo)
+                    console.log(this.cardsInfo[5].author)
                     })
         },
     },
