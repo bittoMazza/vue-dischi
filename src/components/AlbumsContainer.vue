@@ -49,7 +49,6 @@ export default {
         },
         SearchByGenre(genre){
             this.filteredCards = [...this.cardsInfo].filter( (album) => album.genre.includes(genre))
-            console.log(genre,this.filteredCards)
         },
         createGenreArray(albumArray){
             for(let i = 0; i < albumArray.length ; i++){
