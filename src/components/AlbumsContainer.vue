@@ -1,11 +1,12 @@
 <template>
   <div class="container py-5">
     <Loading v-if="IsLoadingScreen == true"/>
-    <div v-eslse>
+    <div v-else>
         <SelectedGenre
-        :albums="cardsInfo" @selectGenre="SearchByGenre"/>
+        :albums="albumsGenre" 
+        @selectGenre="SearchByGenre"/>
         <div class="row">
-            <AlbumCard v-for="(cardInfo,index) in cardsInfo" 
+            <AlbumCard v-for="(cardInfo,index) in filteredCards" 
             :key="index"
             :cardInfo="cardInfo"
             />
@@ -25,6 +26,7 @@ export default {
             cardsInfo:[],
             IsLoadingScreen:true,
             filteredCards:[],
+            albumsGenre:[],
         }
     },
     components:{
@@ -36,16 +38,25 @@ export default {
         getCardInfo() {
               axios.get('https://flynn.boolean.careers/exercises/api/array/music')
                 .then( (result) => {   
-                    this.cardsInfo = result.data.response;    
+                    this.cardsInfo = result.data.response;   
+                    this.filteredCards = this.cardsInfo 
+                    this.createGenreArray(this.filteredCards);
                      this.IsLoadingScreen = false;        
                     })                   
                 .catch((error) => {
                     console.warn(error)
                 })
         },
-        SearchByGenre(){
-            this.filteredCards = [...this.cardsInfo];
-            this.filteredCards.filter ( (album) => album)
+        SearchByGenre(genre){
+            this.filteredCards = [...this.cardsInfo].filter( (album) => album.genre.toLowerCase().includes(genre))
+            console.log(genre,this.filteredCards)
+        },
+        createGenreArray(albumArray){
+            for(let i = 0; i < albumArray.length ; i++){
+                if(!this.albumsGenre.includes(albumArray[i].genre)){
+                    this.albumsGenre.push(albumArray[i].genre);
+                }
+            }
         }
     },
     created(){

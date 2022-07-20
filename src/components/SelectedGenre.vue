@@ -1,6 +1,6 @@
 <template>
-  <select name="selectType" id="">
-    <option @change="$emit('selectGenre',card.genre)" or="(card,index) in albums" :key="index" value=""> {{ card.genre }}</option>
+  <select name="selectType" @change="$emit('selectGenre','rock')" id="">
+    <option v-for="(card,index) in albums" :key="index" value='rock'> {{ card }}</option>
   </select>
 </template>
 
