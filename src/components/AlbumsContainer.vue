@@ -48,7 +48,7 @@ export default {
                 })
         },
         SearchByGenre(genre){
-            this.filteredCards = [...this.cardsInfo].filter( (album) => album.genre.toLowerCase().includes(genre))
+            this.filteredCards = [...this.cardsInfo].filter( (album) => album.genre.includes(genre))
             console.log(genre,this.filteredCards)
         },
         createGenreArray(albumArray){

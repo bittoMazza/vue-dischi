@@ -1,6 +1,6 @@
 <template>
-  <select name="selectType" @change="$emit('selectGenre','rock')" id="">
-    <option v-for="(card,index) in albums" :key="index" value='rock'> {{ card }}</option>
+  <select v-model="selected" name="selectType" @change="$emit('selectGenre',selected)" id="">
+    <option v-for="(card,index) in albums" :key="index" :value='card'> {{ card }}</option>
   </select>
 </template>
 
@@ -8,7 +8,12 @@
 export default {
     props:[
         'albums'
-    ]
+    ],
+    data: function() {
+        return{
+            selected: '',
+        }
+    }
 }
 </script>
 
